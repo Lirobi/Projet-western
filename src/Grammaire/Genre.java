@@ -1,4 +1,6 @@
 package Grammaire;
 
-public class Genre {
+public enum Genre {
+    FEMININ,
+    MASCULIN;
 }

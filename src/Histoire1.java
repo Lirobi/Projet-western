@@ -7,7 +7,9 @@
 //
 //
 
-import western1.grammaire.Genre;
+import Grammaire.Boisson;
+import Grammaire.Genre;
+import Grammaire.Personnage;
 
 public class Histoire1
 {
