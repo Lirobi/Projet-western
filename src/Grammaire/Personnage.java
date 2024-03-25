@@ -1,11 +1,12 @@
 package Grammaire;
 
 public class Personnage {
-    private String m_nom;
-    private Boisson boisson_preferee;
+    private final String m_nom;
+    private final Boisson boisson_preferee;
 
     public Personnage(String nom) {
         this.m_nom = nom;
+        this.boisson_preferee = new Boisson("Eau", Genre.FEMININ);
     }
 
     public Personnage(String nom, Boisson boisson_preferee) {
@@ -14,24 +15,20 @@ public class Personnage {
     }
 
     public void dire(String texte) {
-
+        System.out.println(this.m_nom + " - " + texte);
     }
     public void sePresenter() {
-
+        System.out.println(this.m_nom + " - Bonjour, je suis " + this.m_nom + " et j'aime " + this.boisson_preferee.getGenre().getNomAvecArticleDefini() + "." );
     }
 
     public void boire() {
-        if(this.boisson_preferee == null) {
-            System.out.println("Je n'ai pas de boisson préférée ! ");
-        }
-        else {
-            System.out.println("Ah ! Boire " + this.boisson_preferee.getGenre().getNomAvecArticlePartitif() + " ! GLOUPS !");
-        }
+        System.out.println(this.m_nom + " - " + "Ah ! Boire " + this.boisson_preferee.getGenre().getNomAvecArticlePartitif() + " ! GLOUPS !");
+
     }
     public void boire(Boisson boisson) {
         if (boisson != this.boisson_preferee) {
 
-            System.out.println("« GLOUPS ! Faut vraiment avoir soif pour boire " + boisson.getGenre().getNomAvecArticlePartitif() + " ! J’aurais préféré boire " + this.boisson_preferee.getGenre().getNomAvecArticlePartitif() + "! ». ");
+            System.out.println(this.m_nom + " - " + "« GLOUPS ! Faut vraiment avoir soif pour boire " + boisson.getGenre().getNomAvecArticlePartitif() + " ! J’aurais préféré boire " + this.boisson_preferee.getGenre().getNomAvecArticlePartitif() + "! ». ");
 
         } else {
             this.boire();

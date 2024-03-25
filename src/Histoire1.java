@@ -13,6 +13,8 @@ import Grammaire.Personnage;
 
 public class Histoire1
 {
+
+    // TODO : faire les deux dernières questions de la partie 1 du sujet.
     public static void main(String[] args)
     {
         Personnage max = new Personnage("Max");
