@@ -1,9 +1,9 @@
 @startuml
 
 
-Personnage o..>"m_boisson" Boisson
-Boisson o..>"m_nom" Substantif
-Substantif o..>"m_genre" "«enumeration» \n Genre"
+Personnage o-->"1 \n -m_boisson" Boisson
+Boisson o-->"1 \n -m_nom" Substantif
+Substantif o-->"1 \n -m_genre" "«enumeration» \n Genre"
 
 enum "«enumeration» \n Genre" {
 FEMININ
@@ -14,6 +14,11 @@ class Substantif {
 
     - m_nom : String
     '- m_genre : Genre
+
+    + getNom() : String
+    + getGenre() : Genre
+
+    + Substantif(nom : String, genre : Genre)
 
     + getArticleDefini()
     + getNomAvecArticleDefini()
@@ -28,7 +33,7 @@ class Substantif {
 class Boisson {
     '- m_nom : Substantif
 
-    + «create» Boisson(nom : String)
+    + «create» Boisson(nom : String, genre : Genre)
     + getNom(): String
     + getGenre(): Substantif
 }
