@@ -14,7 +14,7 @@ class Substantif {
 
     - m_nom : String
     '- m_genre : Genre
-
+    + getNom() : String
     + getArticleDefini()
     + getNomAvecArticleDefini()
     + getArticleIndefini()
