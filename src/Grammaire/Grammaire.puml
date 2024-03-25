@@ -16,7 +16,7 @@ class Substantif {
     '- m_genre : Genre
 
     + getNom() : String
-    + getGenre() : Genre
+    + getGenre() : Substantif
 
     + Substantif(nom : String, genre : Genre)
 
