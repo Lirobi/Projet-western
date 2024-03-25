@@ -7,11 +7,12 @@
 //
 //
 
-import western1.Boisson;
-import western1.grammaire.Genre;
+import Scenario2.Grammaire.*;
 
 public class Histoire2
 {
+
+    // TODO : faire les diagrammes aussi comme pour le scenario 1
     public static void main(String[] args)
     {
         Dame scarlett = new Dame("Scarlett");
