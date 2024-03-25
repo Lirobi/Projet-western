@@ -7,9 +7,9 @@
 //
 //
 
-import Grammaire.Boisson;
-import Grammaire.Genre;
-import Grammaire.Personnage;
+import Scenario1.Grammaire.Boisson;
+import Scenario1.Grammaire.Genre;
+import Scenario1.Grammaire.Personnage;
 
 public class Histoire1
 {

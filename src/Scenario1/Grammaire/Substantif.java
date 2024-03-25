@@ -1,4 +1,4 @@
-package Grammaire;
+package Scenario1.Grammaire;
 
 public class Substantif {
     private String m_nom;

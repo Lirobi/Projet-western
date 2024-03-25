@@ -1,4 +1,4 @@
-package Grammaire;
+package Scenario1.Grammaire;
 
 public class Boisson {
     private Substantif m_nom;

@@ -1,4 +1,4 @@
-package Grammaire;
+package Scenario1.Grammaire;
 
 public enum Genre {
     FEMININ,

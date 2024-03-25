@@ -1,4 +1,4 @@
-package Grammaire;
+package Scenario1.Grammaire;
 
 public class Personnage {
     private final String m_nom;

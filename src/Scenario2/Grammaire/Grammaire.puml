@@ -1,0 +1,51 @@
+@startuml
+
+
+Personnage o-->"1 \n -m_boisson" Boisson
+Boisson o-->"1 \n -m_nom" Substantif
+Substantif o-->"1 \n -m_genre" "«enumeration» \n Genre"
+
+enum "«enumeration» \n Genre" {
+FEMININ
+MASCULIN
+}
+
+class Substantif {
+
+    - m_nom : String
+    '- m_genre : Genre
+
+    + getNom() : String
+    + getGenre() : Substantif
+
+    + Substantif(nom : String, genre : Genre)
+
+    + getArticleDefini()
+    + getNomAvecArticleDefini()
+    + getArticleIndefini()
+    + getNomAvecArticleIndefini()
+    + getArticlePartitif()
+    + getNomAvecArticlePartitif()
+    + getNomAvecPreposition()
+
+}
+
+class Boisson {
+    '- m_nom : Substantif
+
+    + «create» Boisson(nom : String, genre : Genre)
+    + getNom(): String
+    + getGenre(): Substantif
+}
+class Personnage {
+    - m_nom : String
+    '- m_boisson : Boisson
+
+    + «create» Personnage(nom : String)
+    + «create» Personnage(nom : String, boisson_preferee : Boisson)
+    + dire(text : String)
+    + sePresenter()
+    + boire(boisson : Boisson)
+}
+
+@enduml
