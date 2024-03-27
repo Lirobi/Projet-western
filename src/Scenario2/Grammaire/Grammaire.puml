@@ -1,15 +1,15 @@
 @startuml
 
-Dame o--> "1\n" Personnage
-Cowboy o--> "1\n" Personnage
-Brigand o--> "1\n" Personnage
-Narrateur o--> "1\n" Personnage
+Dame --|> "1\n" Personnage
+Cowboy --|> "1\n" Personnage
+Brigand --|> "1\n" Personnage
+Narrateur --|> "1\n" Personnage
 Personnage o-->"1 \n -m_boisson" Boisson
 Boisson o-->"1 \n -m_nom" Substantif
 Substantif o-->"1 \n -m_genre" "«enumeration» \n Genre"
 'Dame <---> Cowboy
-Cowboy "1\n capturer"<---> "*\n brigands_captures" Brigand
-Brigand <---> "*\n dames_capturees"Dame
+Cowboy "1\n -m_capturer"<---> "*\n brigands_captures" Brigand
+Brigand "1\n -m_ravisseur"<---> "*\n dames_capturees"Dame
 
 enum "«enumeration» \n Genre" {
 FEMININ
@@ -82,6 +82,7 @@ class Brigand{
     + capturer(c : Cowboy)
     + kidnapper(dame : Dame)
     + liberer_dames (c : Cowboy)
+    + getDamesCapturees() : Dame[*]
 }
 class Narrateur{
     + «Create» Narrateur(nom : String)
