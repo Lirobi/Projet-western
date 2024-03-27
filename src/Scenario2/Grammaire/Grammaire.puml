@@ -1,12 +1,15 @@
 @startuml
 
 Dame o--> "1\n" Personnage
-Cowboy o--> "1\n brigands_captures" Personnage
+Cowboy o--> "1\n" Personnage
 Brigand o--> "1\n" Personnage
 Narrateur o--> "1\n" Personnage
 Personnage o-->"1 \n -m_boisson" Boisson
 Boisson o-->"1 \n -m_nom" Substantif
 Substantif o-->"1 \n -m_genre" "«enumeration» \n Genre"
+'Dame <---> Cowboy
+Cowboy "1\n capturer"<---> "*\n brigands_captures" Brigand
+Brigand <---> "*\n dames_capturees"Dame
 
 enum "«enumeration» \n Genre" {
 FEMININ
@@ -17,11 +20,11 @@ class Substantif {
 
     - m_nom : String
     '- m_genre : Genre
-
+    - voyelles : String[]
     + getNom() : String
     + getGenre() : Substantif
 
-    + Substantif(nom : String, genre : Genre)
+    + «Create»Substantif(nom : String, genre : Genre)
 
     + getArticleDefini()
     + getNomAvecArticleDefini()
@@ -41,7 +44,7 @@ class Boisson {
     + getGenre(): Substantif
 }
 class Personnage {
-    - m_nom : String
+    # m_nom : String
     '- m_boisson : Boisson
 
     + «create» Personnage(nom : String)
@@ -49,25 +52,38 @@ class Personnage {
     + dire(text : String)
     + sePresenter()
     + boire(boisson : Boisson)
+    + getNom() : String
+    + getBoissonPreferee() : Boisson
 }
 
 class Cowboy{
-# porte_monnaie : Interger
-+ «Create»Cowboy(nom : String)
-+ «Create»Cowboy(nom : String, boisson_preferee : Boisson)
-+ tirerSur(brigand Brigand)
-+ capturer(brigand Brigand)
+    # porte_monnaie : Integer
+    + «Create»Cowboy(nom : String)
+    + «Create»Cowboy(nom : String, boisson_preferee : Boisson)
+    + tirerSur(brigand : Brigand)
+    + capturer(brigand : Brigand)
+
 }
 class Dame{
-- estCaptive : Boolean
-+ «Create»Dame(nom : String)
-+ «Creat»Dame (nom : String, boisson_preferee : Boisson)
-+ capturer(b Brigand)
-+ libe
+    - estCaptive : Boolean
+    + «Create»Dame(nom : String)
+    + «Create»Dame (nom : String, boisson_preferee : Boisson)
+    + capturer(b : Brigand)
+    + liberer(c : Cowboy)
 }
 class Brigand{
+    - recompense : Integer
+    + «Create»Brigand (nom : String)
+    + «Create»Brigand (nom : String, boisson_preferee : Boisson)
+    + getRecompense() : Integer
+    + capturer(c : Cowboy)
+    + kidnapper(dame : Dame)
+    + liberer_dames (c : Cowboy)
 }
 class Narrateur{
+    + «Create» Narrateur(nom : String)
+    + «Creat» Narrateur(nom : String, boisson_preferee : Boisson)
+    + dire(texte :String)
 }
 
 @enduml
