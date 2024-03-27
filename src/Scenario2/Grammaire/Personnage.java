@@ -4,19 +4,24 @@ package Scenario2.Grammaire;
 public abstract class Personnage {
     protected final String m_nom;
     protected final Boisson boisson_preferee;
+    protected String pseudo;
+
 
     public Personnage(String nom) {
         this.m_nom = nom;
+        this.pseudo = nom;
         this.boisson_preferee = new Boisson("Eau", Genre.FEMININ);
     }
 
     public Personnage(String nom, Boisson boisson_preferee) {
         this.m_nom = nom;
+        this.pseudo = nom;
+
         this.boisson_preferee = boisson_preferee;
     }
 
     public void dire(String texte) {
-        System.out.println(this.m_nom + " - " + texte);
+        System.out.println(this.getPseudo() + " - " + texte);
     }
     public void sePresenter() {
         this.dire("Bonjour, je suis " + this.m_nom + " et j'aime " + this.boisson_preferee.getGenre().getNomAvecArticleDefini() + "." );
@@ -37,6 +42,10 @@ public abstract class Personnage {
     }
     public String getNom() {
         return this.m_nom;
+    }
+
+    public String getPseudo() {
+        return this.pseudo;
     }
 
     public Boisson getBoissonPreferee(){

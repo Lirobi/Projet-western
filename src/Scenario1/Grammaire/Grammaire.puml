@@ -14,6 +14,7 @@ class Substantif {
 
     - m_nom : String
     '- m_genre : Genre
+    - voyelles: String[]
 
     + getNom() : String
     + getGenre() : Substantif
