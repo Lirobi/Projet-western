@@ -9,9 +9,6 @@ public class Dame extends Personnage {
     public Dame(String nom, Boisson boisson_preferee) {
         super("Miss " + nom, boisson_preferee);
         this.pseudo = "Miss " + nom;
-
-
-
     }
 
     public void capturer(Brigand b) {

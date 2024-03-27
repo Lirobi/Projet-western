@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Cowboy extends Personnage{
 
-    protected int porte_monnaie = 0;
+    protected int m_porte_monnaie = 0;
 
     protected List<Brigand> brigands_captures = new ArrayList<Brigand>();
     public Cowboy(String nom) {

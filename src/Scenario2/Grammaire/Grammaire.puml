@@ -43,9 +43,10 @@ class Boisson {
     + getNom(): String
     + getGenre(): Substantif
 }
-class Personnage {
+class Personnage<<abstract>>{
     # m_nom : String
     '- m_boisson : Boisson
+    # pseudo : String
 
     + «create» Personnage(nom : String)
     + «create» Personnage(nom : String, boisson_preferee : Boisson)
@@ -53,11 +54,12 @@ class Personnage {
     + sePresenter()
     + boire(boisson : Boisson)
     + getNom() : String
+    + getPseudo() : String
     + getBoissonPreferee() : Boisson
 }
 
 class Cowboy{
-    # porte_monnaie : Integer
+    # m_porte_monnaie : Integer
     + «Create»Cowboy(nom : String)
     + «Create»Cowboy(nom : String, boisson_preferee : Boisson)
     + tirerSur(brigand : Brigand)
@@ -73,6 +75,7 @@ class Dame{
 }
 class Brigand{
     - recompense : Integer
+    - estCapture = Boolean
     + «Create»Brigand (nom : String)
     + «Create»Brigand (nom : String, boisson_preferee : Boisson)
     + getRecompense() : Integer
