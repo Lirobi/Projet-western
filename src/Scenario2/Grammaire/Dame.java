@@ -14,7 +14,7 @@ public class Dame extends Personnage {
         this.estCaptive = true;
     }
 
-    public void librerer(Cowboy c) {
+    public void liberer(Cowboy c) {
         this.dire(" Merci " + c.getNom() + ", tu es mon sauveur !");
         this.estCaptive = false;
     }

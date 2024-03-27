@@ -34,7 +34,7 @@ public class Brigand extends Personnage{
     public void liberer_dames(Cowboy c) {
         for(Dame d : this.dames_capturees) {
             c.dire("Voilà " + d.getNom() + ", tu es libre maintenant !");
-            d.librerer(c);
+            d.liberer(c);
         }
         this.dames_capturees = new ArrayList<Dame>();
     }

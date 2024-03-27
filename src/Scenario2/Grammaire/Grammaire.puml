@@ -1,6 +1,9 @@
 @startuml
 
-
+Dame o--> "1\n" Personnage
+Cowboy o--> "1\n brigands_captures" Personnage
+Brigand o--> "1\n" Personnage
+Narrateur o--> "1\n" Personnage
 Personnage o-->"1 \n -m_boisson" Boisson
 Boisson o-->"1 \n -m_nom" Substantif
 Substantif o-->"1 \n -m_genre" "«enumeration» \n Genre"
@@ -46,6 +49,25 @@ class Personnage {
     + dire(text : String)
     + sePresenter()
     + boire(boisson : Boisson)
+}
+
+class Cowboy{
+# porte_monnaie : Interger
++ «Create»Cowboy(nom : String)
++ «Create»Cowboy(nom : String, boisson_preferee : Boisson)
++ tirerSur(brigand Brigand)
++ capturer(brigand Brigand)
+}
+class Dame{
+- estCaptive : Boolean
++ «Create»Dame(nom : String)
++ «Creat»Dame (nom : String, boisson_preferee : Boisson)
++ capturer(b Brigand)
++ libe
+}
+class Brigand{
+}
+class Narrateur{
 }
 
 @enduml
