@@ -8,8 +8,10 @@
 //
 
 import western1.Boisson;
+import western1.grammaire.Feminin;
 import western1.grammaire.Genre;
 import western1.Personnage;
+import western1.grammaire.Masculin;
 
 public class Histoire1
 {
@@ -18,8 +20,8 @@ public class Histoire1
     public static void main(String[] args)
     {
         Personnage max = new Personnage("Max");
-        Personnage kid = new Personnage("The Kid", new Boisson("thé à la menthe", Genre.MASCULIN));
-        Personnage bill = new Personnage("Bill", new Boisson("whisky", Genre.MASCULIN));
+        Personnage kid = new Personnage("The Kid", new Boisson("thé à la menthe", new Masculin()));
+        Personnage bill = new Personnage("Bill", new Boisson("whisky", new Masculin()));
 
         max.sePresenter();
         max.boire();
@@ -29,6 +31,6 @@ public class Histoire1
         kid.boire();
 
         bill.sePresenter();
-        bill.boire(new Boisson("eau", Genre.FEMININ));
+        bill.boire(new Boisson("eau", new Feminin()));
     }
 }

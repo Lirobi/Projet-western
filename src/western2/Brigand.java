@@ -7,7 +7,7 @@ import western1.Boisson;
 
 public class Brigand extends Personnage {
     private int recompense = 100;
-    private boolean estCapture = false;
+    private Cowboy estCapture;
     private List<Dame> dames_capturees = new ArrayList<Dame>();
     public Brigand(String nom) {
         super(nom + " le méchant");
@@ -16,10 +16,28 @@ public class Brigand extends Personnage {
     }
     public Brigand(String nom, western1.Boisson boisson_preferee) {
         super(nom + " le méchant", boisson_preferee);
-        this.pseudo = nom + "le méchant" ;
+        this.pseudo = nom + " le méchant" ;
 
     }
+    @Override
+    public String sePresenter() {
+        String str = "Bonjour, je suis " + this.getNom() + " et j'aime " + this.boisson_preferee.getGenre().getNomAvecArticleDefini() + ". Ma tete est mise a prix " + this.recompense + "$ ! ";
 
+        if(this.estCapture == null) {
+            str += "Je suis libre ";
+            if(dames_capturees.size() >= 1) {
+                str +="et en bonne compagnie avec ";
+                for(Dame dame : dames_capturees) {
+                    str += dame.getPseudo() + " ";
+                }
+            }
+        }
+        else {
+            str += "Je suis le prisonnier de " + estCapture.getPseudo();
+        }
+
+        return this.dire(str);
+    }
     public int getRecompense() {
         return this.recompense;
     }
@@ -30,7 +48,7 @@ public class Brigand extends Personnage {
         c.m_porte_monnaie += this.getRecompense();
         c.brigands_captures.add(this);
         this.liberer_dames(c);
-        estCapture = true;
+        estCapture = c;
         return this.dire( "Damned, je suis fait ! Tu m'as eu, " + c.getNom() + " ! Mais tu n'emporteras pas les" +
                 " " + this.getRecompense() + " $ au paradis.");
     }

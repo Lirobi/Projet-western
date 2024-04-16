@@ -8,9 +8,12 @@ public class Narrateur extends Personnage {
     private ArrayList<String> m_histoire;
     public Narrateur() {
         super("Le narrateur");
+        this.m_histoire = new ArrayList<String>();
     }
     public Narrateur(String nom) {
         super(nom + ", le narrateur");
+        this.m_histoire = new ArrayList<String>();
+
     }
     public Narrateur(String nom, western1.Boisson boisson_preferee) throws InvalidParameterException{
 
@@ -18,10 +21,14 @@ public class Narrateur extends Personnage {
         if(!boisson_preferee.getNom().equalsIgnoreCase("eau")) {
             throw new InvalidParameterException("Le narrateur ne doit pas boire autre chose que de l'eau !");
         }
+        this.m_histoire = new ArrayList<String>();
+
 
     }
     public void ajouterLignes(String str) {
-        m_histoire.add(str);
+        if(str != null) {
+            m_histoire.add(str);
+        }
     }
 
     public void raconterHistoire() {

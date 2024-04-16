@@ -1,5 +1,6 @@
 package western1;
 
+import western1.grammaire.Feminin;
 import western1.grammaire.Genre;
 
 public class Personnage {
@@ -8,7 +9,7 @@ public class Personnage {
 
     public Personnage(String nom) {
         this.m_nom = nom;
-        this.boisson_preferee = new Boisson("Eau", Genre.FEMININ);
+        this.boisson_preferee = new Boisson("Eau", new Feminin());
     }
 
     public Personnage(String nom, Boisson boisson_preferee) {

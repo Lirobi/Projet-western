@@ -1,14 +1,12 @@
 package western1;
 
-import western1.grammaire.Genre;
-
 public class Substantif {
     private String m_nom;
-    private Genre m_genre;
+    private western1.grammaire.Genre m_genre;
 
     private String[] voyelles = {"a", "e", "i", "o", "u", "y"};
 
-    public Substantif(String nom, Genre genre) {
+    public Substantif(String nom, western1.grammaire.Genre genre) {
         this.m_nom = nom;
         this.m_genre = genre;
     }
@@ -19,11 +17,7 @@ public class Substantif {
                 return "l'";
             }
         }
-        if(this.m_genre == Genre.MASCULIN) {
-            return "le ";
-        } else {
-            return "la ";
-        }
+        return this.m_genre.getDeterminantDefini();
     }
 
     public String getNomAvecArticleDefini() {
@@ -32,27 +26,15 @@ public class Substantif {
                 return "l'" + this.m_nom;
             }
         }
-        if(this.m_genre == Genre.MASCULIN) {
-            return "le " + this.m_nom;
-        } else {
-            return "la " + this.m_nom;
-        }
+        return this.m_genre.getDeterminantDefini() + this.m_nom;
     }
 
     public String getArticleIndefini() {
-        if(this.m_genre == Genre.MASCULIN) {
-            return "un ";
-        } else {
-            return "une ";
-        }
+        return this.m_genre.getDeterminantIndefini();
     }
 
     public String getNomAvecArticleIndefini() {
-        if(this.m_genre == Genre.MASCULIN) {
-            return "un " + this.m_nom;
-        } else {
-            return "une " + this.m_nom;
-        }
+        return this.m_genre.getDeterminantIndefini() + this.getNom();
     }
 
     public String getArticlePartitif() {
@@ -61,11 +43,7 @@ public class Substantif {
                 return "de l'";
             }
         }
-        if(this.m_genre == Genre.MASCULIN) {
-            return "du ";
-        } else {
-            return "de la ";
-        }
+        return this.m_genre.getArticlePartitif();
     }
 
     public String getNomAvecArticlePartitif() {
@@ -74,11 +52,7 @@ public class Substantif {
                 return "de l'" + this.m_nom;
             }
         }
-        if(this.m_genre == Genre.MASCULIN) {
-            return "du " + this.m_nom;
-        } else {
-            return "de la " + this.m_nom;
-        }
+        return this.m_genre.getArticlePartitif() + this.m_nom;
     }
     public String getNomAvecPreposititon() {
         for(String v : voyelles) {
@@ -86,17 +60,13 @@ public class Substantif {
                 return "d'" + this.m_nom;
             }
         }
-        if(this.m_genre == Genre.MASCULIN) {
-            return "de " + this.m_nom;
-        } else {
-            return "de " + this.m_nom;
-        }
+        return "de " + this.m_nom;
     }
 
     public String getNom() {
         return this.m_nom;
     }
-    public Genre getGenre()  {
+    public western1.grammaire.Genre getGenre()  {
         return this.m_genre;
     }
 }

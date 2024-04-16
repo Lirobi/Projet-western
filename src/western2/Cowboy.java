@@ -23,6 +23,18 @@ public class Cowboy extends Personnage {
 
     }
 
+    @Override
+    public String sePresenter() {
+        String str = "Bonjour, je suis " + this.getNom() + " et j'aime boire " + this.boisson_preferee.getGenre().getNomAvecArticlePartitif();
+        if(this.brigands_captures.size() >= 1) {
+            str +=". J'ai empoché " + this.m_porte_monnaie + "$ en capturant ";
+            for(Brigand brd : this.brigands_captures) {
+                str += brd.getPseudo();
+            }
+        }
+
+        return this.dire(str);
+    }
     public String capturer(Brigand brigand) {
         return brigand.capturer(this);
     }

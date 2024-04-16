@@ -2,11 +2,11 @@ package western2;
 
 public class Substantif {
     private String m_nom;
-    private Genre m_genre;
+    private western1.grammaire.Genre m_genre;
 
     private String[] voyelles = {"a", "e", "i", "o", "u", "y"};
 
-    public Substantif(String nom, Genre genre) {
+    public Substantif(String nom, western1.grammaire.Genre genre) {
         this.m_nom = nom;
         this.m_genre = genre;
     }
@@ -66,7 +66,7 @@ public class Substantif {
     public String getNom() {
         return this.m_nom;
     }
-    public Genre getGenre()  {
+    public western1.grammaire.Genre getGenre()  {
         return this.m_genre;
     }
 }
