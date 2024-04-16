@@ -1,0 +1,113 @@
+@startuml
+
+Dame --|> "1\n" Personnage
+Cowboy --|> "1\n" Personnage
+Brigand --|> "1\n" Personnage
+Narrateur --|> "1\n" Personnage
+Personnage o-->"1 \n -m_boisson" Boisson
+Boisson o-->"1 \n -M_NOM" Substantif
+'Substantif o-->"1 \n -m_genre" "«enumeration» \n Genre"
+'Dame <---> Cowboy
+Cowboy "1\n -m_capturer"<---> "*\n brigands_captures" Brigand
+Brigand "1\n -m_ravisseur"<---> "*\n dames_capturees"Dame
+
+'enum "«enumeration» \n Genre" {
+'FEMININ
+'MASCULIN
+'}
+
+class Substantif {
+
+    - m_nom : String
+    - m_genre : western1.grammaire.Genre
+    - voyelles : String[]
+
+    + «Create» Substantif(nom : String, genre : western1.grammaire.Genre)
+
+    + getArticleDefini() : String
+    + getNomAvecArticleDefini() : String
+    + getArticleIndefini() : String
+    + getNomAvecArticleIndefini() : String
+    + getArticlePartitif() : String
+    + getNomAvecArticlePartitif() : String
+    + getNomAvecPreposition() : String
+
+    + getNom() : String
+    + getGenre() : western1.grammaire.Genre
+}
+
+class Boisson {
+    - m_nom : Substantif
+
+    + «create» Boisson(nom : String, genre : western1.grammaire.Genre)
+
+    + getNom(): String
+    + getGenre(): Substantif
+}
+
+class Personnage<<abstract>>{
+    # m_nom  : String {readOnly}
+    '- m_boisson : Boisson
+    # boisson_preferee : western1.Boisson {readOnly}
+    # pseudo : String
+
+    + «create» Personnage(nom : String)
+    + «create» Personnage(nom : String, boisson_preferee  : Boisson)
+
+    + dire(texte : String) : String
+    + sePresenter() : String
+    + boire(boisson : Boisson) : String
+    + boire(boisson : western1.Boisson)
+    + getNom() : String
+    + getPseudo() : String
+    + getBoissonPreferee() : western1.Boisson
+}
+
+class Cowboy{
+    # m_porte_monnaie : Integer
+
+    + «Create»Cowboy(nom : String)
+    + «Create»Cowboy(nom : String, boisson_preferee  : western1.Boisson)
+
+    + tirerSur(brigand : Brigand)
+    + sePresenter() : String
+    + capturer(brigand : Brigand)
+}
+
+class Dame{
+    - estCaptive : Brigand
+    - sauveur : Cowboy
+
+    + «Create»Dame(nom : String)
+    + «Create»Dame (nom : String, boisson_preferee  : western1.Boisson)
+
+    + capturer(b : Brigand) : String
+    + liberer(c : Cowboy) : String
+    + sePresenter() : String
+}
+
+class Brigand{
+    - recompense : Integer
+    - estCapture : Cowboy
+
+    '+ «Create»Brigand (nom : String)
+    + «Create»Brigand (nom : String, boisson_preferee  : western1.Boisson)
+
+    + sePresenter() : String
+    + getRecompense() : Integer
+    + capturer(c : Cowboy)
+    + kidnapper(dame : Dame)
+    + liberer_dames (c : Cowboy)
+    '+ getDamesCapturees() : Dame[*]
+}
+
+class Narrateur{
+    + «Create» Narrateur()
+    + «Create» Narrateur(nom : String)
+    + «Create» Narrateur(nom : String, boisson_preferee  : Boisson)
+    + ajouterLignes(str String)
+    + raconterHistoire()
+    + dire(texte :String)
+}
+
+@enduml
