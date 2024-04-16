@@ -7,8 +7,6 @@
 //
 //
 
-import Scenario2.Grammaire.*;
-import Scenario3.Grammaire.*;
 import western1.grammaire.Feminin;
 import western1.grammaire.Masculin;
 import western2.*;
