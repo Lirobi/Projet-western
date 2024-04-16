@@ -1,4 +1,6 @@
-package Scenario1.Grammaire;
+package western1;
+
+import western1.grammaire.Genre;
 
 public class Boisson {
     private Substantif m_nom;

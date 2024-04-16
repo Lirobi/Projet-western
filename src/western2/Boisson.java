@@ -1,4 +1,4 @@
-package Scenario2.Grammaire;
+package western2;
 
 public class Boisson {
     private Substantif m_nom;

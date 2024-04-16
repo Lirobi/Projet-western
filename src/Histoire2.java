@@ -8,6 +8,11 @@
 //
 
 import Scenario2.Grammaire.*;
+import Scenario3.Grammaire.*;
+import western2.Brigand;
+import western2.Cowboy;
+import western2.Genre;
+import western2.Narrateur;
 
 public class Histoire2
 {

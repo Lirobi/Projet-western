@@ -1,4 +1,4 @@
-package Scenario2.Grammaire;
+package western2;
 
 public class Substantif {
     private String m_nom;

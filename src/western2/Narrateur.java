@@ -1,8 +1,11 @@
-package Scenario2.Grammaire;
+package western2;
 
 import java.security.InvalidParameterException;
 
-public class Narrateur extends Personnage{
+public class Narrateur extends Personnage {
+    public Narrateur() {
+        super("Le narrateur");
+    }
     public Narrateur(String nom) {
         super(nom + ", le narrateur");
     }

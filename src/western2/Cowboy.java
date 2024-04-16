@@ -1,9 +1,9 @@
-package Scenario2.Grammaire;
+package western2;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cowboy extends Personnage{
+public class Cowboy extends Personnage {
 
     protected int m_porte_monnaie = 0;
 

@@ -1,9 +1,9 @@
-package Scenario2.Grammaire;
+package western2;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Brigand extends Personnage{
+public class Brigand extends Personnage {
     private int recompense = 100;
     private boolean estCapture = false;
     private List<Dame> dames_capturees = new ArrayList<Dame>();

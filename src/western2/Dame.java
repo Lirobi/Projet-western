@@ -1,4 +1,4 @@
-package Scenario2.Grammaire;
+package western2;
 
 public class Dame extends Personnage {
     private boolean estCaptive = false;
