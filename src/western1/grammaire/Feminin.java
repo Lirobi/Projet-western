@@ -1,17 +1,18 @@
 package western1.grammaire;
 
-public class Feminin {
+public class Feminin implements Genre{
+    @Override
     public String getDeterminantIndefini() {
-        return null;
+        return "une ";
     }
-
+    @Override
     public String getDeterminantDefini(){
-        return
-
+        return "la ";
     }
 
+    @Override
     public String getArticlePartitif()
     {
-        return null;
+        return "de la ";
     }
 }

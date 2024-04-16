@@ -9,10 +9,9 @@
 
 import Scenario2.Grammaire.*;
 import Scenario3.Grammaire.*;
-import western2.Brigand;
-import western2.Cowboy;
-import western2.Genre;
-import western2.Narrateur;
+import western1.grammaire.Feminin;
+import western1.grammaire.Masculin;
+import western2.*;
 
 public class Histoire2
 {
@@ -21,8 +20,8 @@ public class Histoire2
     public static void main(String[] args)
     {
         Dame scarlett = new Dame("Scarlett");
-        Cowboy luke = new Cowboy("Luke", new Boisson("bière", Genre.FEMININ));
-        Brigand dalton = new Brigand("Dalton", new Boisson("whisky", Genre.MASCULIN));
+        Cowboy luke = new Cowboy("Luke", new western1.Boisson("bière", new Feminin()));
+        Brigand dalton = new Brigand("Dalton", new western1.Boisson("whisky", new Masculin()));
         Narrateur narrateur = new Narrateur("Ed");
 
         /* Les présentations */

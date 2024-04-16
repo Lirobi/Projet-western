@@ -6,21 +6,25 @@ public class Dame extends Personnage {
         super(nom);
         this.pseudo = "Miss " + nom;
     }
-    public Dame(String nom, Boisson boisson_preferee) {
+    public Dame(String nom, western1.Boisson boisson_preferee) {
         super("Miss " + nom, boisson_preferee);
         this.pseudo = "Miss " + nom;
     }
 
-    public void capturer(Brigand b) {
-        this.dire(" Hiiii ! Au secours ! " + b.getNom() + " m’enlève !");
+    public String capturer(Brigand b) {
         this.estCaptive = true;
+        return this.dire(" Hiiii ! Au secours ! " + b.getNom() + " m’enlève !");
     }
 
-    public void liberer(Cowboy c) {
-        this.dire(" Merci " + c.getNom() + ", tu es mon sauveur !");
+    public String liberer(Cowboy c) {
         this.estCaptive = false;
+        return this.dire(" Merci " + c.getNom() + ", tu es mon sauveur !");
+
     }
 
+    public String dire(String texte) {
+        return texte;
+    }
 
 
 

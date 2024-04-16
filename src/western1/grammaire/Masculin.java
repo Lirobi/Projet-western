@@ -1,17 +1,20 @@
 package western1.grammaire;
 
-public class Masculin {
+public class Masculin implements Genre {
+    @Override
     public String getDeterminantIndefini() {
-        return null;
+        return "un ";
     }
+    @Override
 
     public String getDeterminantDefini(){
-        return null;
+        return "le ";
 
     }
+    @Override
 
     public String getArticlePartitif()
     {
-        return null;
+        return "du ";
     }
 }

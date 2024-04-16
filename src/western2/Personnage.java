@@ -1,37 +1,39 @@
 package western2;
 
 
+import western1.grammaire.Feminin;
+
 public abstract class Personnage {
     protected final String m_nom;
-    protected final Boisson boisson_preferee;
+    protected final western1.Boisson boisson_preferee;
     protected String pseudo;
 
 
     public Personnage(String nom) {
         this.m_nom = nom;
         this.pseudo = nom;
-        this.boisson_preferee = new Boisson("Eau", Genre.FEMININ);
+        this.boisson_preferee = new western1.Boisson("Eau", new Feminin());
     }
 
-    public Personnage(String nom, Boisson boisson_preferee) {
+    public Personnage(String nom, western1.Boisson boisson_preferee) {
         this.m_nom = nom;
         this.pseudo = nom;
 
         this.boisson_preferee = boisson_preferee;
     }
 
-    public void dire(String texte) {
-        System.out.println(this.getPseudo() + " - " + texte);
+    public String dire(String texte) {
+        return this.getPseudo() + " - " + texte;
     }
-    public void sePresenter() {
-        this.dire("Bonjour, je suis " + this.m_nom + " et j'aime " + this.boisson_preferee.getGenre().getNomAvecArticleDefini() + "." );
+    public String sePresenter() {
+        return this.dire("Bonjour, je suis " + this.m_nom + " et j'aime " + this.boisson_preferee.getGenre().getNomAvecArticleDefini() + "." );
     }
 
-    public void boire() {
-        this.dire("Ah ! Boire " + this.boisson_preferee.getGenre().getNomAvecArticlePartitif() + " ! GLOUPS !");
+    public String boire() {
+        return this.dire("Ah ! Boire " + this.boisson_preferee.getGenre().getNomAvecArticlePartitif() + " ! GLOUPS !");
 
     }
-    public void boire(Boisson boisson) {
+    public void boire(western1.Boisson boisson) {
         if (boisson != this.boisson_preferee) {
 
             this.dire("« GLOUPS ! Faut vraiment avoir soif pour boire " + boisson.getGenre().getNomAvecArticlePartitif() + " ! J’aurais préféré boire " + this.boisson_preferee.getGenre().getNomAvecArticlePartitif() + "! ». ");
@@ -48,7 +50,7 @@ public abstract class Personnage {
         return this.pseudo;
     }
 
-    public Boisson getBoissonPreferee(){
+    public western1.Boisson getBoissonPreferee(){
         return this.boisson_preferee;
     }
 

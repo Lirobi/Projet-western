@@ -11,18 +11,20 @@ public class Cowboy extends Personnage {
     public Cowboy(String nom) {
         super(nom);
     }
-    public Cowboy(String nom, Boisson boisson_preferee) {
+    public Cowboy(String nom, western1.Boisson boisson_preferee) {
         super(nom, boisson_preferee);
     }
 
 
-    public void tirerSur(Brigand brigand) {
-        this.dire("PAN ! PAN ! Prends ça, chacal de " + brigand.getNom() + "!");
-        brigand.dire("Tu n’es qu’un coyote, " + this.getNom() + " !");
+    public String tirerSur(Brigand brigand) {
+
+
+        return this.dire("PAN ! PAN ! Prends ça, chacal de " + brigand.getNom() + "!") + brigand.dire("Tu n’es qu’un coyote, " + this.getNom() + " !");
+
     }
 
-    public void capturer(Brigand brigand) {
-        brigand.capturer(this);
+    public String capturer(Brigand brigand) {
+        return brigand.capturer(this);
     }
 
 }

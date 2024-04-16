@@ -2,6 +2,8 @@ package western2;
 
 import java.util.ArrayList;
 import java.util.List;
+import western1.Boisson;
+
 
 public class Brigand extends Personnage {
     private int recompense = 100;
@@ -12,7 +14,7 @@ public class Brigand extends Personnage {
         this.pseudo = nom + " le méchant";
 
     }
-    public Brigand(String nom, Boisson boisson_preferee) {
+    public Brigand(String nom, western1.Boisson boisson_preferee) {
         super(nom + " le méchant", boisson_preferee);
         this.pseudo = nom + "le méchant" ;
 
@@ -22,21 +24,23 @@ public class Brigand extends Personnage {
         return this.recompense;
     }
 
-    public void capturer(Cowboy c) {
+    public String capturer(Cowboy c) {
 
-        this.dire( "Damned, je suis fait ! Tu m'as eu, " + c.getNom() + " ! Mais tu n'emporteras pas les" +
-                " " + this.getRecompense() + " $ au paradis.");
+
         c.m_porte_monnaie += this.getRecompense();
         c.brigands_captures.add(this);
         this.liberer_dames(c);
         estCapture = true;
+        return this.dire( "Damned, je suis fait ! Tu m'as eu, " + c.getNom() + " ! Mais tu n'emporteras pas les" +
+                " " + this.getRecompense() + " $ au paradis.");
     }
 
-    public void kidnapper(Dame dame) {
-        this.dire(" Ah, ah ! " + dame.getNom() + ", tu es mienne désormais !");
+    public String kidnapper(Dame dame) {
         this.recompense += 50;
         dame.capturer(this);
         this.dames_capturees.add(dame);
+        return this.dire(" Ah, ah ! " + dame.getNom() + ", tu es mienne désormais !");
+
     }
     public void liberer_dames(Cowboy c) {
         for(Dame d : this.dames_capturees) {
