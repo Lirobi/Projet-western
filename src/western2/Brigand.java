@@ -25,7 +25,7 @@ public class Brigand extends Personnage {
 
         if(this.estCapture == null) {
             str += "Je suis libre ";
-            if(dames_capturees.size() >= 1) {
+            if(!dames_capturees.isEmpty()) {
                 str +="et en bonne compagnie avec ";
                 for(Dame dame : dames_capturees) {
                     str += dame.getPseudo() + " ";
@@ -54,6 +54,7 @@ public class Brigand extends Personnage {
     }
 
     public String kidnapper(Dame dame) {
+
         this.recompense += 50;
         dame.capturer(this);
         this.dames_capturees.add(dame);
