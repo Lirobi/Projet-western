@@ -12,13 +12,13 @@ public class Brigand extends Personnage {
     public Brigand(String nom) {
         super(nom + " le méchant");
         this.pseudo = nom + " le méchant";
-
     }
+
     public Brigand(String nom, western1.Boisson boisson_preferee) {
         super(nom + " le méchant", boisson_preferee);
         this.pseudo = nom + " le méchant" ;
-
     }
+
     @Override
     public String sePresenter() {
         String str = "Bonjour, je suis " + this.getNom() + " et j'aime " + this.boisson_preferee.getGenre().getNomAvecArticleDefini() + ". Ma tete est mise a prix " + this.recompense + "$ ! ";
@@ -35,16 +35,14 @@ public class Brigand extends Personnage {
         else {
             str += "Je suis le prisonnier de " + estCapture.getPseudo();
         }
-
         return this.dire(str);
     }
+
     public int getRecompense() {
         return this.recompense;
     }
 
     public String capturer(Cowboy c) {
-
-
         c.m_porte_monnaie += this.getRecompense();
         c.brigands_captures.add(this);
         this.liberer_dames(c);
@@ -59,8 +57,8 @@ public class Brigand extends Personnage {
         dame.capturer(this);
         this.dames_capturees.add(dame);
         return this.dire(" Ah, ah ! " + dame.getNom() + ", tu es mienne désormais !");
-
     }
+
     public void liberer_dames(Cowboy c) {
         for(Dame d : this.dames_capturees) {
             c.dire("Voilà " + d.getNom() + ", tu es libre maintenant !");
@@ -68,5 +66,4 @@ public class Brigand extends Personnage {
         }
         this.dames_capturees = new ArrayList<Dame>();
     }
-
 }

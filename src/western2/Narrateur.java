@@ -15,7 +15,7 @@ public class Narrateur extends Personnage {
         this.m_histoire = new ArrayList<String>();
 
     }
-    public Narrateur(String nom, western1.Boisson boisson_preferee) throws InvalidParameterException{
+    public Narrateur(String nom, western1.Boisson boisson_preferee) throws InvalidParameterException {
 
         super(nom + ", le narrateur", boisson_preferee);
         if(!boisson_preferee.getNom().equalsIgnoreCase("eau")) {

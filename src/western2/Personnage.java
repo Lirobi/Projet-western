@@ -31,7 +31,6 @@ public abstract class Personnage {
 
     public String boire() {
         return this.dire("Ah ! Boire " + this.boisson_preferee.getGenre().getNomAvecArticlePartitif() + " ! GLOUPS !");
-
     }
     public void boire(western1.Boisson boisson) {
         if (boisson != this.boisson_preferee) {

@@ -21,7 +21,6 @@ public class Dame extends Personnage {
         this.estCaptive = null;
         this.sauveur = c;
         return this.dire(" Merci " + c.getNom() + ", tu es mon sauveur !");
-
     }
 
     @Override
@@ -36,11 +35,6 @@ public class Dame extends Personnage {
         else {
             str += "Je suis captive de cet escroc de " + this.estCaptive.getPseudo() + ".";
         }
-
         return this.dire(str);
     }
-
-
-
-
 }
